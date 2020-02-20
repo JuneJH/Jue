@@ -4,9 +4,16 @@
    - model表示数据，各种数据，后端，缓存
    - view表示用户所看到的页面
    - view-model处理业务和数据
+
+
+
+
            ——————————————————>  
    view       双向数据绑定           view-model      <——————http请求————————> model
            <——————————————————
+
+
+           
    view-model 通过双向数据绑定 实时的将view-model中的数据展现在view中。通过http请求将后端数据与view-model中的数据同步
 
   2. 缺点
