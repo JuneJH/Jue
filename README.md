@@ -6,7 +6,7 @@
    - view-model处理业务和数据
 
            
-   view  <——  双向数据绑定 ——>  view-model   <——http请求——> model
+   view  <——  双向数据绑定 ——>  view-model   <————> model
          
 
 
