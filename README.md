@@ -44,4 +44,12 @@ Setter ==> Dep ==> Watcher ----异步更新(nextTick)---- ==>patch ==> 更新视
 
 **个人愚见**
 
+## 关于Vuex状态管理原理
+
+在vue中引入vuex是通过Vue.use(),使用该方法需要一个install()方法，在install中通过Vue.mixin({beforCreate:vuexInit})将vuexInit混入到钩子函数中，在初始化时，每个实例根据自身情况获得store，根节点直接获取，非根节点通过父节点的$store获取
+
+store数据实现响应，通过Vue实现数据响应
+
+接下来实现相应的commit，dispatch，
+
    
