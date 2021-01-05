@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .red{
+        color:red;
+    }
+    .orange{
+        color:orange;
+    }
+
+
+</style>
+<body>
+    <div id="app">
+         <h1>{{readme}}</h1>
+        <div>你好！！！ {{content}}  {{description}}</div>
+        <div>{{description}}</div>
+        <div>{{obj.a}}</div>
+        <!-- <div>{{list}}</div> -->
+        <input type="text" v-model="obj.b">{{obj.b}}
+        <ul>
+            <li v-for="(key,index) in list">姓名：{{key.a}},年龄{{key.b}}</li>
+        </ul>
+        <div>计算属性：{{computedTest}}</div>
+        <div :class="red">this is font-color red;</div>
+        <div v-bind:class="{red:obj.a > 2,orange:obj.b < 1000}">this is font-color red;</div>
+        <button v-on:click="clickHandle">===click add===</button> <span>click button add: {{count}}</span>
+
+    </div>
+    <script type="module">
+        import Jue from './core/index.js'
+         window.obj = {
+                readme:'测试MVVM原理框架',
+                content:'June',
+                description:'hello June',
+                obj:{
+                    a:1234,
+                    b:654,
+                    c:1,
+                    d:2222,
+                    e:123456
+                },
+                list:[{a:'june',b:18},{a:'june',b:18}],
+                red:'red',
+                count:0
+            }
+        window.vm = new Jue({
+            el:'app',
+            data:obj,
+            // created(){
+            //     console.log('this is created!!!','this:',this,'parame')
+            // },
+            methods:{
+                clickHandle(){
+                    this.count ++;
+                }
+            },
+            computed:{
+                computedTest(){
+                    return 'this is test data'
+                }
+            }
+            
+        })
+    </script>
+
+</body>
+</html>
